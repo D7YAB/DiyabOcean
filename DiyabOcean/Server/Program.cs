@@ -1,6 +1,6 @@
 global using DiyabOcean.Shared;
 global using Microsoft.EntityFrameworkCore;
-using DiyabOcean.Server.Data;
+global using DiyabOcean.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
