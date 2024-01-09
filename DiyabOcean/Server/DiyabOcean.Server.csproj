@@ -15,9 +15,5 @@
     <ProjectReference Include="..\Shared\DiyabOcean.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 
 </Project>
