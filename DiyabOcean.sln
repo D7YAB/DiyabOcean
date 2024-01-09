@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiyabOcean.Server", "DiyabOcean\Server\DiyabOcean.Server.csproj", "{5128AD10-E15E-458C-BFDD-E54CC20A971C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiyabOcean.Server", "DiyabOcean\Server\DiyabOcean.Server.csproj", "{5128AD10-E15E-458C-BFDD-E54CC20A971C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiyabOcean.Client", "DiyabOcean\Client\DiyabOcean.Client.csproj", "{42293E00-EEBA-4C36-8026-201EE878C41A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiyabOcean.Client", "DiyabOcean\Client\DiyabOcean.Client.csproj", "{42293E00-EEBA-4C36-8026-201EE878C41A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiyabOcean.Shared", "DiyabOcean\Shared\DiyabOcean.Shared.csproj", "{88F65E44-2284-48EB-9AED-AB029AF9135E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiyabOcean.Shared", "DiyabOcean\Shared\DiyabOcean.Shared.csproj", "{88F65E44-2284-48EB-9AED-AB029AF9135E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
