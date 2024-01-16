@@ -10,7 +10,7 @@ namespace DiyabOcean.Client.Services.ProductService
         {
             _http = http;
         }
-        public List<Product> Products { get; set; } = new List<Product>();
+        public List<Product?> Products { get; set; } = new List<Product?>();
         public async Task GetProducts()
         {
             var result = await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product");
@@ -19,6 +19,12 @@ namespace DiyabOcean.Client.Services.ProductService
                 Products = result.Data;
             }
             
+        }
+
+        public async Task<ServiceResponse<Product>> GetProduct(int productId)
+        {
+            var result = await _http.GetFromJsonAsync<ServiceResponse<Product>>($"api/product/{productId}");
+            return result;
         }
     }
 }
