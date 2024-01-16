@@ -29,3 +29,12 @@
 .price {
     color: green;
 }
+
+.media-body {
+    flex: 1;
+}
+
+.media {
+    display: flex;
+    align-items: flex-start;
+}
