@@ -2,6 +2,7 @@ global using DiyabOcean.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using DiyabOcean.Server.Data;
 global using DiyabOcean.Server.Services.ProductService;
+global using DiyabOcean.Server.Services.CategoryService;
 using Microsoft.AspNetCore.ResponseCompression;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
