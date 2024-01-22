@@ -10,15 +10,19 @@ namespace DiyabOcean.Client.Services.ProductService
         {
             _http = http;
         }
-        public List<Product?> Products { get; set; } = new List<Product?>();
-        public async Task GetProducts()
+
+        public event Action? ProductsChanged;
+        public List<Product> Products { get; set; } = new List<Product>();
+        public async Task GetProducts(string? categoryUrl = null)
         {
-            var result = await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product");
+            var result = categoryUrl == null
+                ? await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/Product")
+                : await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/Product/category/{categoryUrl}");
             if (result is { Data: not null })
             {
                 Products = result.Data;
             }
-            
+            ProductsChanged?.Invoke();
         }
 
         public async Task<ServiceResponse<Product>> GetProduct(int productId)
