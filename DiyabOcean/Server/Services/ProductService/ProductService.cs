@@ -12,7 +12,9 @@ namespace DiyabOcean.Server.Services.ProductService
         [HttpGet]
         public async Task<ServiceResponse<List<Product>>> GetProductsAsync()
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _context.Products
+                .Include(p=>p.Variants)
+                .ToListAsync();
             var response = new ServiceResponse<List<Product>>
             {
                 Data = await _context.Products.ToListAsync()
@@ -23,7 +25,11 @@ namespace DiyabOcean.Server.Services.ProductService
         public async Task<ServiceResponse<Product>> GetProductAsync(int productId)
         {
             var response = new ServiceResponse<Product>();
-            var product = await _context.Products.FindAsync(productId);
+            var product = await _context.Products
+                .Include(p => p.Variants)
+                .ThenInclude(v => v.Variant)
+                .FirstOrDefaultAsync(p => p.Id == productId);
+
             if (product == null)
             {
                 response.Success = false;
@@ -42,6 +48,7 @@ namespace DiyabOcean.Server.Services.ProductService
             {
                 Data = await _context.Products
                     .Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower()))
+                    .Include(p => p.Variants)
                     .ToListAsync()
             };
             return response;
