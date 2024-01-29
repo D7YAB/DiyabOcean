@@ -42,5 +42,12 @@ namespace DiyabOcean.Server.Controllers
             var result = await _productService.SearchProducts(searchText);
             return Ok(result);
         }
+
+        [HttpGet("searchSuggestions/{searchText}")]
+        public async Task<ActionResult<ServiceResponse<List<Product>>>> GetProductsSearchSuggetions(string searchText)
+        {
+            var result = await _productService.GetProductSearchSuggestions(searchText);
+            return Ok(result);
+        }
     }
 }
